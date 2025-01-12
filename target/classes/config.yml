@@ -1,0 +1,20 @@
+special_fishing_rods:
+  granito:
+    display_name: "§x#FF5733Caña de Pescar Granito"
+    drops:
+      - item: DIAMOND
+        chance: 50.0
+        display_name: "Diamante Brillante"
+        enchantments:
+          - SHARPNESS:5
+      - item: GOLD_INGOT
+        chance: 50.0
+        display_name: "Lingote Dorado"
+  obsidiana:
+    display_name: "Caña de Pescar Obsidiana"
+    drops:
+      - item: NETHERITE_SWORD
+        chance: 30.0
+        display_name: "Espada de Netherite"
+        enchantments:
+          - LOOTING:3

@@ -1,0 +1,20 @@
+# Es necesario reiniciar el servidor para que los cambios en el prefijo se actualicen.
+prefix: "§x#C913FF[§x#FF55F3ReloadX§x#C913FF] "
+
+global:
+  no_permission: "%prefix%§cNo tienes permiso para ejecutar este comando."
+  no_found: "%perfix%Mensaje no encontrado."
+
+fishing:
+  reload_success: "%prefix%§aLa configuración de OtherFishing ha sido recargada."
+  command_usage: "%prefix%§cUso: /fishing <subcomando> [argumentos]"
+
+fishing_event:
+  caught_special: "%prefix%§6¡Has pescado un objeto especial!"
+  no_drops: "%prefix%§cNo hay drops configurados para esta caña."
+  invalid_rod_config: "%prefix%§cLa configuración de la caña es inválida."
+  rod_received: "%prefix%§a¡Has recibido la caña de pescar especial: %rod%!"
+  rod_not_found: "%prefix%§cNo existe una caña de pescar con el nombre %rod% en la configuración."
+
+
+

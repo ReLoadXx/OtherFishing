@@ -1,0 +1,26 @@
+name: OtherFishing
+version: 1.0.0
+main: dev.reloadx.OtherFishing
+author: ReloadX
+api-version: 1.13
+
+commands:
+  fishing:
+    subcommands:
+      reload:
+        description: Recarga la configuración del plugin
+        usage: /fishing reload
+        permission: otherfishing.reload
+      give:
+        description: Da una caña de pescar especial a un jugador
+        usage: /fishing give <nombre>
+        permission: otherfishing.give
+
+permissions:
+  otherfishing.reload:
+    description: Permite recargar la configuración de OtherFishing.
+    default: op
+
+  otherfishing.give:
+    description: Permite usar el comando /fishing give <nombre> para dar cañas de pescar especiales.
+    default: op
