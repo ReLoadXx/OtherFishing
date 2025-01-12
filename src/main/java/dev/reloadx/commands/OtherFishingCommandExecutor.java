@@ -1,15 +1,13 @@
 package dev.reloadx.commands;
 
 import dev.reloadx.OtherFishing;
-import dev.reloadx.utils.ColorUtils;
+import dev.reloadx.utils.ItemUtils;
 import dev.reloadx.utils.MessageUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 
@@ -79,21 +77,15 @@ public class OtherFishingCommandExecutor implements CommandExecutor {
         if (rodsSection != null && rodsSection.contains(rodType)) {
             ConfigurationSection rodConfig = rodsSection.getConfigurationSection(rodType);
 
-            if (rodConfig != null && rodConfig.contains("display_name")) {
-                String rodDisplayName = rodConfig.getString("display_name");
-                rodDisplayName = ColorUtils.hex(rodDisplayName);
-
+            if (rodConfig != null) {
                 ItemStack rod = new ItemStack(Material.FISHING_ROD);
-                ItemMeta rodMeta = rod.getItemMeta();
-                if (rodMeta != null) {
-                    rodMeta.setDisplayName(rodDisplayName);
-                    rod.setItemMeta(rodMeta);
-                }
+
+                ItemUtils.applyItemProperties(rod, rodConfig);
 
                 player.getInventory().addItem(rod);
 
                 String message = plugin.getConfigManager().getMessage("fishing_event.rod_received");
-                message = message.replace("%rod%", rodDisplayName);
+                message = message.replace("%rod%", rod.getItemMeta().getDisplayName());
                 message = MessageUtils.replacePlaceholders(message, null);
                 player.sendMessage(message);
             } else {
@@ -108,4 +100,5 @@ public class OtherFishingCommandExecutor implements CommandExecutor {
             player.sendMessage(message);
         }
     }
+
 }

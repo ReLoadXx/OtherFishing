@@ -81,7 +81,15 @@ public class FishingListener implements Listener {
 
                     if (meta != null) {
                         if (dropConfig.containsKey("display_name")) {
-                            meta.setDisplayName((String) dropConfig.get("display_name"));
+                            String displayName = (String) dropConfig.get("display_name");
+                            displayName = ColorUtils.hex(displayName);
+                            meta.setDisplayName(displayName);
+                        }
+
+                        if (dropConfig.containsKey("lore")) {
+                            List<String> lore = (List<String>) dropConfig.get("lore");
+                            lore = lore.stream().map(ColorUtils::hex).toList();
+                            meta.setLore(lore);
                         }
 
                         if (dropConfig.containsKey("enchantments")) {

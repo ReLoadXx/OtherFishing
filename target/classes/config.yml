@@ -1,20 +1,36 @@
 special_fishing_rods:
   granito:
     display_name: "§x#FF5733Caña de Pescar Granito"
+    lore:
+      - "§7Una caña de pescar especial"
+      - "§7Hecha de granito"
     drops:
       - item: DIAMOND
         chance: 50.0
         display_name: "Diamante Brillante"
+        lore:
+          - "§7Un diamante muy brillante"
+          - "§7Perfecto para tus aventuras"
         enchantments:
           - SHARPNESS:5
       - item: GOLD_INGOT
         chance: 50.0
         display_name: "Lingote Dorado"
+        lore:
+          - "§7Un lingote dorado puro"
+          - "§7Utilízalo sabiamente"
   obsidiana:
-    display_name: "Caña de Pescar Obsidiana"
+    display_name: "§xCaña de Pescar Obsidiana"
+    lore:
+      - "§7Forjada con obsidiana"
+      - "§7Es resistente y poderosa"
     drops:
       - item: NETHERITE_SWORD
         chance: 30.0
         display_name: "Espada de Netherite"
+        lore:
+          - "§7Una espada muy poderosa"
+          - "§7Con una magia ancestral"
         enchantments:
           - LOOTING:3
+
