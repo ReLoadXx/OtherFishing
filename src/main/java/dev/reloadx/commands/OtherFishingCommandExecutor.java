@@ -6,13 +6,12 @@ import dev.reloadx.utils.MessageUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
-
-
 
 public class OtherFishingCommandExecutor implements CommandExecutor {
 
@@ -35,10 +34,12 @@ public class OtherFishingCommandExecutor implements CommandExecutor {
             if (args[0].equalsIgnoreCase("reload")) {
                 if (sender.hasPermission("otherfishing.reload")) {
                     plugin.reloadConfig();
+                    plugin.getConfigManager().reloadMessagesConfig();
+
                     String message = plugin.getConfigManager().getMessage("fishing.reload_success");
                     message = MessageUtils.replacePlaceholders(message, null);
                     sender.sendMessage(message);
-                    plugin.getLogger().info("La configuración ha sido recargada por " + sender.getName());
+                    plugin.getLogger().info("La configuración y los mensajes han sido recargados por " + sender.getName());
                     return true;
                 } else {
                     String message = plugin.getConfigManager().getMessage("global.no_permission");
@@ -68,7 +69,6 @@ public class OtherFishingCommandExecutor implements CommandExecutor {
                     return true;
                 }
             }
-
         }
         return false;
     }

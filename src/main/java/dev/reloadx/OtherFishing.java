@@ -1,6 +1,7 @@
 package dev.reloadx;
 
 import dev.reloadx.commands.OtherFishingCommandExecutor;
+import dev.reloadx.commands.TabComplete;
 import dev.reloadx.listeners.FishingListener;
 import dev.reloadx.config.ConfigManager;
 import org.bukkit.Bukkit;
@@ -33,6 +34,7 @@ public class OtherFishing extends JavaPlugin {
 
     private void registerCommands() {
         getCommand("fishing").setExecutor(new OtherFishingCommandExecutor(this));
+        getCommand("fishing").setTabCompleter(new TabComplete(this));
     }
 
     public ConfigManager getConfigManager() {
