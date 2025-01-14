@@ -15,13 +15,13 @@ special_fishing_rods:
           - SHARPNESS:5
         quantity: 5
         particles:
-          type: "FLAME"  # Tipo de partícula
-          amount: 10      # Cantidad de partículas
+          type: "FLAME"
+          amount: 10
         title:
           text: "§6¡Felicidades!"
           subtitle: "Has pescado un Diamante Brillante"
         sound:
-          type: "ENTITY_PLAYER_LEVELUP"  # Tipo de sonido
+          type: "ENTITY_PLAYER_LEVELUP"
           volume: 1.0
           pitch: 1.0
       - item: GOLD_INGOT
