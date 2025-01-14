@@ -2,11 +2,18 @@ prefix: "§x#C913FF[§x#FF55F3ReloadX§x#C913FF] "
 
 global:
   no_permission: "%prefix%§cNo tienes permiso para ejecutar este comando."
-  no_found: "%prefix%§cMensaje no encontrado."
+  no_found: "%prefix%Mensaje no encontrado."
+  command_help:
+    reload: "§dfishing reload - §7 Recarga la configuración del plugin."
+    give: "§dfishing give <jugador> <caña> - §7 Da una caña  a un jugador."
+    help: "§dfishing help - §7 Muestra esta ayuda con todos los comandos disponibles."
 
 fishing:
   reload_success: "%prefix%§aLa configuración de OtherFishing ha sido recargada."
   command_usage: "%prefix%§cUso: /fishing <subcomando> [argumentos]"
+
+  help_header: "%prefix%§a--- Lista de comandos de Fishing ---"
+  help_footer: "%prefix%§a--- Fin de la ayuda ---"
 
 fishing_event:
   caught_special: "%prefix%§6¡Has pescado un objeto especial!"
@@ -16,7 +23,4 @@ fishing_event:
   rod_not_found: "%prefix%§cNo existe una caña de pescar con el nombre %rod% en la configuración."
   rod_given: "%prefix%§aLe has dado una caña de pescar especial a %player%: %rod%."
   rod_not_online: "%prefix%§cEl jugador %player% no está en línea."
-
-
-
 

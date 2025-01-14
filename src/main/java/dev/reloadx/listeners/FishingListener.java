@@ -17,7 +17,7 @@ public class FishingListener implements Listener {
 
     public FishingListener(OtherFishing plugin) {
         this.plugin = plugin;
-        this.specialFishingHandler = new SpecialFishingHandler(); // Inicializa el handler
+        this.specialFishingHandler = new SpecialFishingHandler();
     }
 
     @EventHandler

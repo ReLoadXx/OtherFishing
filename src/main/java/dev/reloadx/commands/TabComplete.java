@@ -30,6 +30,9 @@ public class TabComplete implements TabCompleter {
             if ("give".startsWith(args[0].toLowerCase())) {
                 completions.add("give");
             }
+            if ("help".startsWith(args[0].toLowerCase())) {
+                completions.add("help");
+            }
         }
 
         if (args.length == 2 && args[0].equalsIgnoreCase("give")) {

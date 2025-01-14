@@ -37,6 +37,7 @@ public class OtherFishingCommandExecutor implements CommandExecutor {
                     String message = plugin.getConfigManager().getMessage("fishing.reload_success");
                     message = MessageUtils.replacePlaceholders(message, null);
                     sender.sendMessage(message);
+                    plugin.getLogger().info("La configuración y los mensajes han sido recargados por " + sender.getName());
                     return true;
                 } else {
                     String message = plugin.getConfigManager().getMessage("global.no_permission");
@@ -44,6 +45,11 @@ public class OtherFishingCommandExecutor implements CommandExecutor {
                     sender.sendMessage(message);
                     return true;
                 }
+            }
+
+            if (args[0].equalsIgnoreCase("help")) {
+                showHelp(sender);
+                return true;
             }
 
             if (args.length == 3 && args[0].equalsIgnoreCase("give")) {
@@ -71,6 +77,23 @@ public class OtherFishingCommandExecutor implements CommandExecutor {
             }
         }
         return false;
+    }
+
+    private void showHelp(CommandSender sender) {
+        String helpMessage = plugin.getConfigManager().getMessage("fishing.help_header");
+        String reloadCommand = plugin.getConfigManager().getMessage("global.command_help.reload");
+        String giveCommand = plugin.getConfigManager().getMessage("global.command_help.give");
+        String helpCommand = plugin.getConfigManager().getMessage("global.command_help.help");
+        helpMessage = MessageUtils.replacePlaceholders(helpMessage, null);
+        sender.sendMessage(helpMessage);
+        sender.sendMessage(reloadCommand);
+        sender.sendMessage(giveCommand);
+        sender.sendMessage(helpCommand);
+
+
+        String helpFooter = plugin.getConfigManager().getMessage("fishing.help_footer");
+        helpFooter = MessageUtils.replacePlaceholders(helpFooter, null);
+        sender.sendMessage(helpFooter);
     }
 
     private void giveSpecialRod(Player player, String rodType, CommandSender sender) {
