@@ -2,7 +2,7 @@ prefix: "§x#C913FF[§x#FF55F3ReloadX§x#C913FF] "
 
 global:
   no_permission: "%prefix%§cNo tienes permiso para ejecutar este comando."
-  no_found: "%perfix%Mensaje no encontrado."
+  no_found: "%prefix%§cMensaje no encontrado."
 
 fishing:
   reload_success: "%prefix%§aLa configuración de OtherFishing ha sido recargada."
@@ -14,6 +14,9 @@ fishing_event:
   invalid_rod_config: "%prefix%§cLa configuración de la caña es inválida."
   rod_received: "%prefix%§a¡Has recibido la caña de pescar especial: %rod%!"
   rod_not_found: "%prefix%§cNo existe una caña de pescar con el nombre %rod% en la configuración."
+  rod_given: "%prefix%§aLe has dado una caña de pescar especial a %player%: %rod%."
+  rod_not_online: "%prefix%§cEl jugador %player% no está en línea."
+
 
 
 

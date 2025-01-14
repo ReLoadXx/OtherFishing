@@ -37,7 +37,6 @@ public class OtherFishingCommandExecutor implements CommandExecutor {
                     String message = plugin.getConfigManager().getMessage("fishing.reload_success");
                     message = MessageUtils.replacePlaceholders(message, null);
                     sender.sendMessage(message);
-                    plugin.getLogger().info("La configuración y los mensajes han sido recargados por " + sender.getName());
                     return true;
                 } else {
                     String message = plugin.getConfigManager().getMessage("global.no_permission");
@@ -47,31 +46,34 @@ public class OtherFishingCommandExecutor implements CommandExecutor {
                 }
             }
 
-            if (args.length == 2 && args[0].equalsIgnoreCase("give")) {
-                String rodType = args[1].toLowerCase();
-                if (sender instanceof Player) {
-                    Player player = (Player) sender;
-                    if (player.hasPermission("otherfishing.give." + rodType)) {
-                        giveSpecialRod(player, rodType);
-                        return true;
-                    } else {
-                        String message = plugin.getConfigManager().getMessage("global.no_permission");
-                        message = MessageUtils.replacePlaceholders(message, null);
-                        player.sendMessage(message);
-                        return true;
-                    }
-                } else {
-                    String message = plugin.getConfigManager().getMessage("fishing.command_usage");
+            if (args.length == 3 && args[0].equalsIgnoreCase("give")) {
+                String playerName = args[1];
+                String rodType = args[2].toLowerCase();
+
+                if (!sender.hasPermission("otherfishing.give." + rodType)) {
+                    String message = plugin.getConfigManager().getMessage("global.no_permission");
                     message = MessageUtils.replacePlaceholders(message, null);
                     sender.sendMessage(message);
                     return true;
                 }
+
+                Player targetPlayer = plugin.getServer().getPlayer(playerName);
+                if (targetPlayer == null) {
+                    String message = plugin.getConfigManager().getMessage("fishing_event.rod_not_online");
+                    message = message.replace("%player%", playerName);
+                    message = MessageUtils.replacePlaceholders(message, null);
+                    sender.sendMessage(message);
+                    return true;
+                }
+
+                giveSpecialRod(targetPlayer, rodType, sender);
+                return true;
             }
         }
         return false;
     }
 
-    private void giveSpecialRod(Player player, String rodType) {
+    private void giveSpecialRod(Player player, String rodType, CommandSender sender) {
         ConfigurationSection rodsSection = plugin.getConfig().getConfigurationSection("special_fishing_rods");
 
         if (rodsSection != null && rodsSection.contains(rodType)) {
@@ -88,17 +90,22 @@ public class OtherFishingCommandExecutor implements CommandExecutor {
                 message = message.replace("%rod%", rod.getItemMeta().getDisplayName());
                 message = MessageUtils.replacePlaceholders(message, null);
                 player.sendMessage(message);
+
+                message = plugin.getConfigManager().getMessage("fishing_event.rod_given");
+                message = message.replace("%player%", player.getName());
+                message = message.replace("%rod%", rod.getItemMeta().getDisplayName());
+                message = MessageUtils.replacePlaceholders(message, null);
+                sender.sendMessage(message);
             } else {
                 String message = plugin.getConfigManager().getMessage("fishing_event.invalid_rod_config");
                 message = MessageUtils.replacePlaceholders(message, null);
-                player.sendMessage(message);
+                sender.sendMessage(message);
             }
         } else {
             String message = plugin.getConfigManager().getMessage("fishing_event.rod_not_found");
             message = message.replace("%rod%", rodType);
             message = MessageUtils.replacePlaceholders(message, null);
-            player.sendMessage(message);
+            sender.sendMessage(message);
         }
     }
-
 }
