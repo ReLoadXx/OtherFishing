@@ -76,7 +76,9 @@ public class FishingListener implements Listener {
             if (randomValue <= accumulatedProbability) {
                 Material material = Material.matchMaterial((String) dropConfig.get("item"));
                 if (material != null) {
-                    ItemStack item = new ItemStack(material);
+                    int quantity = dropConfig.containsKey("quantity") ? (int) dropConfig.get("quantity") : 1;
+
+                    ItemStack item = new ItemStack(material, quantity);
                     ItemMeta meta = item.getItemMeta();
 
                     if (meta != null) {
@@ -110,6 +112,41 @@ public class FishingListener implements Listener {
                     }
 
                     player.getWorld().dropItemNaturally(player.getLocation(), item);
+
+                    if (dropConfig.containsKey("particles")) {
+                        Map<String, Object> particlesConfig = (Map<String, Object>) dropConfig.get("particles");
+                        String particleType = (String) particlesConfig.get("type");
+                        int amount = (int) particlesConfig.get("amount");
+
+                        player.getWorld().spawnParticle(
+                                org.bukkit.Particle.valueOf(particleType.toUpperCase()),
+                                player.getLocation(),
+                                amount
+                        );
+                    }
+
+                    if (dropConfig.containsKey("title")) {
+                        Map<String, Object> titleConfig = (Map<String, Object>) dropConfig.get("title");
+                        String text = ColorUtils.hex((String) titleConfig.get("text"));
+                        String subtitle = ColorUtils.hex((String) titleConfig.get("subtitle"));
+
+                        player.sendTitle(text, subtitle, 10, 70, 20);
+                    }
+
+                    if (dropConfig.containsKey("sound")) {
+                        Map<String, Object> soundConfig = (Map<String, Object>) dropConfig.get("sound");
+                        String soundType = (String) soundConfig.get("type");
+                        float volume = ((Double) soundConfig.get("volume")).floatValue();
+                        float pitch = ((Double) soundConfig.get("pitch")).floatValue();
+
+                        player.getWorld().playSound(
+                                player.getLocation(),
+                                org.bukkit.Sound.valueOf(soundType.toUpperCase()),
+                                volume,
+                                pitch
+                        );
+                    }
+
                     break;
                 }
             }
@@ -117,5 +154,7 @@ public class FishingListener implements Listener {
 
         event.getHook().remove();
     }
+
+
 }
 

@@ -13,12 +13,34 @@ special_fishing_rods:
           - "§7Perfecto para tus aventuras"
         enchantments:
           - SHARPNESS:5
+        quantity: 5
+        particles:
+          type: "FLAME"
+          amount: 10
+        title:
+          text: "§6¡Felicidades!"
+          subtitle: "Has pescado un Diamante Brillante"
+        sound:
+          type: "ENTITY_PLAYER_LEVELUP"
+          volume: 1.0
+          pitch: 1.0
       - item: GOLD_INGOT
         chance: 50.0
         display_name: "Lingote Dorado"
         lore:
           - "§7Un lingote dorado puro"
           - "§7Utilízalo sabiamente"
+        quantity: 1
+        particles:
+          type: "SPELL_WITCH"
+          amount: 15
+        title:
+          text: "§eLingote Dorado"
+          subtitle: "¡Un premio dorado!"
+        sound:
+          type: "BLOCK_ANVIL_LAND"
+          volume: 1.0
+          pitch: 0.8
   obsidiana:
     display_name: "§xCaña de Pescar Obsidiana"
     lore:
@@ -33,4 +55,13 @@ special_fishing_rods:
           - "§7Con una magia ancestral"
         enchantments:
           - LOOTING:3
-
+        particles:
+          type: "LAVA"
+          amount: 20
+        title:
+          text: "§4Espada de Netherite"
+          subtitle: "¡Una espada poderosa!"
+        sound:
+          type: "ENTITY_WITHER_DEATH"
+          volume: 1.0
+          pitch: 1.0
