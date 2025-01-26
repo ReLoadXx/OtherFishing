@@ -1,26 +1,27 @@
-prefix: "§x#C913FF[§x#FF55F3ReloadX§x#C913FF] "
+prefix: "#C913FF[#FF55F3ReloadX#C913FF] "
 
 global:
-  no_permission: "%prefix%§cNo tienes permiso para ejecutar este comando."
-  no_found: "%prefix%Mensaje no encontrado."
+  no_permission: "%prefix%§cYou don't have permission to execute this command."
+  no_found: "%prefix%Message not found."
   command_help:
-    reload: "§dfishing reload - §7 Recarga la configuración del plugin."
-    give: "§dfishing give <jugador> <caña> - §7 Da una caña  a un jugador."
-    help: "§dfishing help - §7 Muestra esta ayuda con todos los comandos disponibles."
+    reload: "§dfishing reload - §7 Reloads the plugin configuration."
+    give: "§dfishing give <player> <rod> - §7 Gives a rod to a player."
+    help: "§dfishing help - §7 Displays this help with all available commands."
 
 fishing:
-  reload_success: "%prefix%§aLa configuración de OtherFishing ha sido recargada."
-  command_usage: "%prefix%§cUso: /fishing <subcomando> [argumentos]"
+  reload_success: "%prefix%§aThe OtherFishing configuration has been reloaded."
+  command_usage: "%prefix%§cUsage: /fishing <subcommand> [arguments]"
 
-  help_header: "%prefix%§a--- Lista de comandos de Fishing ---"
-  help_footer: "%prefix%§a--- Fin de la ayuda ---"
+  help_header: "%prefix%§a--- Fishing command list ---"
+  help_footer: "%prefix%§a--- End of help ---"
 
 fishing_event:
-  caught_special: "%prefix%§6¡Has pescado un objeto especial!"
-  no_drops: "%prefix%§cNo hay drops configurados para esta caña."
-  invalid_rod_config: "%prefix%§cLa configuración de la caña es inválida."
-  rod_received: "%prefix%§a¡Has recibido la caña de pescar especial: %rod%!"
-  rod_not_found: "%prefix%§cNo existe una caña de pescar con el nombre %rod% en la configuración."
-  rod_given: "%prefix%§aLe has dado una caña de pescar especial a %player%: %rod%."
-  rod_not_online: "%prefix%§cEl jugador %player% no está en línea."
+  caught_special: "%prefix%§6You have caught a special item!"
+  no_drops: "%prefix%§cThere are no drops configured for this rod."
+  invalid_rod_config: "%prefix%§cThe rod configuration is invalid."
+  rod_received: "%prefix%§aYou have received the special fishing rod: %rod%!"
+  rod_not_found: "%prefix%§cThere is no fishing rod named %rod% in the configuration."
+  rod_given: "%prefix%§aYou have given a special fishing rod to %player%: %rod%."
+  rod_not_online: "%prefix%§cPlayer %player% is not online."
+
 

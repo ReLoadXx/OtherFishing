@@ -1,66 +1,83 @@
+#You can use hex code
 special_fishing_rods:
-  granito:
-    display_name: "§x#FF5733Caña de Pescar Granito"
+  # This is the name of the fishing rod
+  # This name is what you'll use to give yourself the fishing rod
+  granite:
+    # This is the visual name the fishing rod will have
+    display_name: "#FF5733Granite Fishing Rod"
+    # Here you can add a custom description
     lore:
-      - "§7Una caña de pescar especial"
-      - "§7Hecha de granito"
+      - "&7A special fishing rod"
+      - "&7Made of granite"
+    # This category is for configuring the items that have a chance to drop
+    # There's no minimum value, but the maximum they can sum to is 100%
     drops:
+      # Name of the item that will drop. This option is mandatory
+      # The name must be the one the item has in the game
       - item: DIAMOND
+        # Probability of this item dropping
         chance: 50.0
-        display_name: "Diamante Brillante"
+        # The visual name the item will have
+        display_name: "#FF5733Brilliant Diamond"
+        # The description of the item (optional)
         lore:
-          - "§7Un diamante muy brillante"
-          - "§7Perfecto para tus aventuras"
+          - "&7A very shiny diamond"
+          - "&7Perfect for your adventures"
+        # The enchantments on the item (optional)
         enchantments:
           - SHARPNESS:5
+        # The number of items that will drop (optional)
         quantity: 5
+        # The particles that will appear around the player when they fish the item (optional)
         particles:
           type: "FLAME"
           amount: 10
+        # The title that will appear when the item is caught (optional)
         title:
-          text: "§6¡Felicidades!"
-          subtitle: "Has pescado un Diamante Brillante"
+          text: "&6Congratulations!"
+          subtitle: "You caught a Brilliant Diamond"
+        # The sound that will play when the item is caught (optional)
         sound:
           type: "ENTITY_PLAYER_LEVELUP"
           volume: 1.0
           pitch: 1.0
       - item: GOLD_INGOT
         chance: 50.0
-        display_name: "Lingote Dorado"
+        display_name: "Golden Ingot"
         lore:
-          - "§7Un lingote dorado puro"
-          - "§7Utilízalo sabiamente"
+          - "&7A pure golden ingot"
+          - "&7Use it wisely"
         quantity: 1
         particles:
           type: "SPELL_WITCH"
           amount: 15
         title:
-          text: "§eLingote Dorado"
-          subtitle: "¡Un premio dorado!"
+          text: "&eGolden Ingot"
+          subtitle: "A golden prize!"
         sound:
           type: "BLOCK_ANVIL_LAND"
           volume: 1.0
           pitch: 0.8
-  obsidiana:
-    display_name: "§xCaña de Pescar Obsidiana"
+  obsidian:
+    display_name: "&#FFF733Obsidian Fishing Rod"
     lore:
-      - "§7Forjada con obsidiana"
-      - "§7Es resistente y poderosa"
+      - "&7Forged with obsidian"
+      - "&7It's resistant and powerful"
     drops:
       - item: NETHERITE_SWORD
         chance: 30.0
-        display_name: "Espada de Netherite"
+        display_name: "Netherite Sword"
         lore:
-          - "§7Una espada muy poderosa"
-          - "§7Con una magia ancestral"
+          - "&7A very powerful sword"
+          - "&7With ancient magic"
         enchantments:
           - LOOTING:3
         particles:
           type: "LAVA"
           amount: 20
         title:
-          text: "§4Espada de Netherite"
-          subtitle: "¡Una espada poderosa!"
+          text: "&4Netherite Sword"
+          subtitle: "A powerful sword!"
         sound:
           type: "ENTITY_WITHER_DEATH"
           volume: 1.0

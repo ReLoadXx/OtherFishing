@@ -30,7 +30,7 @@ public class FishingListener implements Listener {
         if (fishingRod.getType() == Material.FISHING_ROD && fishingRod.hasItemMeta()) {
             String rodName = fishingRod.getItemMeta().getDisplayName();
 
-            rodName = "§x" + ColorUtils.hex(rodName);
+            rodName = ColorUtils.hex(rodName);
             ConfigurationSection rodsSection = plugin.getConfig().getConfigurationSection("special_fishing_rods");
 
             if (rodsSection != null) {
