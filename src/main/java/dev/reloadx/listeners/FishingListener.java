@@ -22,7 +22,9 @@ public class FishingListener implements Listener {
 
     @EventHandler
     public void onPlayerFish(PlayerFishEvent event) {
-        if (event.getCaught() == null) return;
+        if (event.getState() != PlayerFishEvent.State.CAUGHT_FISH) {
+            return;
+        }
 
         Player player = event.getPlayer();
         ItemStack fishingRod = player.getInventory().getItemInMainHand();
@@ -54,3 +56,4 @@ public class FishingListener implements Listener {
         }
     }
 }
+
